@@ -1,0 +1,23 @@
+{
+  "name": "gpt-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "csv-writer": "^1.6.0",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "exceljs": "^4.4.0",
+    "express": "^4.21.1",
+    "gpt-3-encoder": "^1.1.4",
+    "multer": "^1.4.5-lts.1",
+    "openai": "^4.73.1",
+    "pdf-parse": "^1.1.1"
+  }
+}

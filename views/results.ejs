@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Extraction Results</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Extraction Results</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Paper Name</th>
+          <th>Code</th>
+          <th>Excerpt</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% results.forEach(result => { %>
+          <tr>
+            <td><%= result.paperName %></td>
+            <td><%= result.code %></td>
+            <td><%= result.excerpt %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    <a href="/">Upload Another File</a>
+  </div>
+</body>
+</html>
