@@ -25,19 +25,17 @@ app.use(express.static("public"));
 
 // Full prompt with all codes, descriptions, and examples
 const codebook = `
-You are a Human-Computer Interaction researcher analyzing articles selected for a Systematic Literature Review. 
+You are a Human-Computer Interaction sênior researcher analyzing articles. You are using the open coding technique to identify labels that introduce meaning to excerpts of the text. The labels must identify strategies (techniques, apparatus) that has been used to integrate components as such as sensors, actuators, mobile devices in the design process for smart cities solutions.
+Analyze paragraph per paragraph of the article and assign labels that added meaning to the excerpts of the paragraph. Use many labels as necessary to add high level of abstraction to the meaning. Indicate which excerpts the labels correspond to. The excerpts have to explain which components and what the elements of the context of use as such as users, tasks, Technologies, physical environment, data, information is involved.
 
-Label the attached paper using as many labels as necessary and indicate which sentences/quotes the labels correspond to. 
-
-Do not analyze sections with titles such as "Related Works," "Literature Review," "Theoretical Background," "State of the Art," "Background," "Review of the Literature," "Research Background," "Previous Studies," "Existing Literature," "Knowledge Base," "Foundation of the Study," "Research Context," or "Analysis of Related Research." 
+Do not analyze sections with titles such as "Related Works," "Literature Review," "Theoretical Background," "State of the Art," "Background," "Review of the Literature," "Research Background," "Previous Studies," "Existing Literature," "Knowledge Base," "Foundation of the Study," "Research Context," or "Analysis of Related Research."
 
 Instructions: 
 * Respond only with raw text excerpts from the article that illustrate the identified labels. 
 * Do not provide summaries, interpretations, or explanations. 
 * Extract the text exactly as it appears in the article, preserving the original structure, grammar, and phrasing. 
-* Include as many excerpts as necessary to comprehensively represent the labels. 
-* If no labels are identifiable in certain parts of the article, omit those sections from the response. 
-* The goal is to extract and present relevant raw excerpts that objectively represent the identified labels throughout the article.
+* You can find more than one excerpt per label. 
+* If no labels are identified in certain parts of the article, omit those sections from the response. 
 `;
 
 
@@ -54,7 +52,7 @@ async function processWithGPT(text, paperName) {
     try {
         const response = await openai.chat.completions.create({
             model: "gpt-4o",
-            temperature: 0.2,
+            temperature: 0.4,
             messages: [{
                     role: "system",
                     content: "You are a precise and detail-oriented assistant. Use the provided examples as a guide, but only extract text explicitly stated in the provided content. Do not generate or imagine text beyond the source material.",
